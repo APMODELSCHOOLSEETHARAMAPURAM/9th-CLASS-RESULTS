@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="color-scheme: dark;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>APMS SR PURAM – 9th Class Result</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700;800&display=swap">
+<style>
+:root{--bg:#eef1ff;--card:#fff;--ink:#12204a;--mute:#5d6a8f;--line:#d9defa;--pri:#3a55ff;--pri2:#8a3dff;--acc:#ffb400;--ok:#13b26b;--blue:#2f7cff;--warn:#f59e0b;--bad:#ef4560}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1230;--card:#161f47;--ink:#eef1ff;--mute:#a4afd8;--line:#2a3566}}
+:root[data-theme="dark"]{--bg:#0c1230;--card:#161f47;--ink:#eef1ff;--mute:#a4afd8;--line:#2a3566}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Nunito",system-ui,sans-serif;overflow-x:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3,.logo b{font-family:"Fredoka","Nunito",sans-serif;margin:0}
+button,input{font:inherit;color:inherit}
+input{width:100%;padding:11px 13px;border:2px solid var(--line);border-radius:12px;background:var(--card);transition:border-color .2s}
+input:focus{border-color:var(--pri);outline:none}
+button{cursor:pointer;border:0;border-radius:12px;padding:11px 18px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--pri),var(--pri2));transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(58,85,255,.35)}button:disabled{opacity:.6;transform:none}
+button.ghost{background:rgba(255,255,255,.2);box-shadow:none}
+button.sec{background:var(--bg);color:var(--ink);border:2px solid var(--line);box-shadow:none}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.bgfx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bgfx span{position:absolute;font-size:2.4rem;opacity:.16;animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-28px) rotate(10deg)}}
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:24px;background:linear-gradient(135deg,#1b2cff,#7a2cff,#ff4d8d,#ffb400);background-size:300% 300%;animation:grad 12s ease infinite;overflow:hidden}
+@keyframes grad{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.hero .bgfx span{opacity:.3;font-size:3rem}
+.hero h1{color:#fff;font-size:clamp(2.4rem,9vw,4rem);line-height:1.05;text-align:center;text-shadow:0 4px 0 rgba(0,0,0,.18)}
+.hero p.tag{color:#fff;text-align:center;font-weight:700;margin:8px 0 22px}
+.lcard{position:relative;max-width:390px;width:100%;margin:0 auto;background:var(--card);border-radius:22px;padding:22px;box-shadow:0 24px 60px rgba(10,10,60,.4);animation:rise .8s cubic-bezier(.2,1.3,.4,1)}
+@keyframes rise{from{opacity:0;transform:translateY(60px) scale(.94)}}
+.lcard label{display:block;font-size:.85rem;font-weight:800;color:var(--mute);margin:12px 0 4px}
+.err{color:var(--bad);font-weight:700;min-height:1.5em;margin:8px 0;font-size:.9rem}
+header{position:relative;z-index:2;display:flex;align-items:center;gap:10px;padding:12px 16px;color:#fff;background:linear-gradient(120deg,#1b2cff,#7a2cff);flex-wrap:wrap}
+.logo{flex:1;line-height:1.1}.logo b{font-size:1.3rem}.logo small{display:block;opacity:.85}
+.pill{background:var(--acc);color:#2a1d00;font-weight:800;padding:3px 12px;border-radius:99px;font-size:.85rem}
+.sync-pill{background:rgba(19,178,107,.25);border:1px solid rgba(255,255,255,.4);color:#fff;font-weight:800;padding:3px 10px;border-radius:99px;font-size:.78rem}
+main{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:16px 16px 40px}
+.panel{background:var(--card);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 10px 30px rgba(40,50,140,.12);animation:rise .6s both}
+.panel h2{font-size:1.25rem;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px}
+.chip{position:relative;padding:12px 0;border-radius:14px;background:var(--bg);color:var(--ink);box-shadow:none;border:2px solid var(--line)}
+.chip.on{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;border-color:transparent;transform:scale(1.08)}
+.chip.has::after{content:"";position:absolute;top:5px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.pills{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;flex-wrap:wrap}
+.pills button{background:var(--bg);color:var(--ink);box-shadow:none;border:2px solid var(--line);white-space:nowrap}
+.pills button.on{background:var(--acc);color:#2a1d00;border-color:var(--acc)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:8px}
+.two label{font-size:.85rem;font-weight:800;color:var(--mute)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--line)}th{color:var(--mute);font-size:.82rem}
+td input{width:74px;padding:7px 8px}
+.sum{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.ring{width:130px;height:130px;flex:none}.rb{fill:none;stroke:var(--line);stroke-width:12}
+.rf{fill:none;stroke:url(#gr);stroke-width:12;stroke-linecap:round;transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.rtxt{font:700 22px "Fredoka",sans-serif;fill:var(--ink);text-anchor:middle}
+.big{font:700 1.6rem "Fredoka",sans-serif}
+.badge{display:inline-block;min-width:40px;text-align:center;padding:2px 10px;border-radius:99px;font-weight:800;color:#fff;animation:pop .6s both}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+.gA{background:var(--ok)}.gB{background:var(--blue)}.gC{background:var(--warn)}.gD,.gE{background:var(--bad)}
+.sub{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin-bottom:14px}
+.sub b{font-size:1.05rem}.bar{grid-column:1/-1;height:12px;border-radius:9px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--pri),var(--pri2),var(--acc));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.who{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.av{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font:700 1.7rem "Fredoka",sans-serif;color:#fff;background:linear-gradient(135deg,var(--pri2),#ff4d8d);animation:pop .7s both}
+img.av{object-fit:cover;display:block}
+.empty{text-align:center;color:var(--mute);padding:26px 8px;font-weight:700}.empty span{display:block;font-size:2.6rem;animation:float 4s ease-in-out infinite}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:9;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script>
+// ================================================================
+// LOGIN CREDENTIALS (Hidden from UI)
+// ================================================================
+var AUTH_USER = "ADMIN";
+var ADMIN_PASS = "Social@910";
+var STUDENT_PASS = "Social@Mass910";
+
+// ================================================================
+// FIREBASE REALTIME DATABASE CONFIG (Online Hosting & Live Sync)
+// ================================================================
+var firebaseConfig = {
+  apiKey: "REPLACE_API_KEY",
+  authDomain: "REPLACE.firebaseapp.com",
+  databaseURL: "https://REPLACE-default-rtdb.firebaseio.com",
+  projectId: "REPLACE",
+  storageBucket: "REPLACE.appspot.com",
+  messagingSenderId: "REPLACE",
+  appId: "REPLACE"
+};
+
+var useFirebase = false;
+var db = null;
+if (typeof firebase !== "undefined" && firebaseConfig.apiKey && firebaseConfig.apiKey.indexOf("REPLACE") === -1) {
+  try {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.database();
+    useFirebase = true;
+  } catch (e) {
+    console.warn("Firebase init error:", e);
+  }
+}
+
+// ================================================================
+// APP DATA & REAL-TIME SYNC
+// ================================================================
+var SUBJ = ["Telugu", "Hindi", "English", "Maths", "Science", "Social"];
+var EX = {
+  FA1: [5, 5, 5, 35],
+  FA2: [5, 5, 5, 35],
+  FA3: [5, 5, 5, 35],
+  FA4: [5, 5, 5, 35],
+  SA1: [20, 60],
+  SA2: [20, 60]
+};
+var STORAGE_KEY = "apms_sr_puram_9th_live_v1";
+
+var D = { students: {}, marks: {} };
+var role = null, roll = 0, ex = "FA1", celebrate = false;
+var syncStatus = useFirebase ? "🟢 Online Live" : "🟡 Local Saved";
+var saveTimer = null;
+
+try { roll = +sessionStorage.getItem("sp_roll") || 0; } catch (e) {}
+
+function $(i) { return document.getElementById(i); }
+function esc(t) {
+  return String(t == null ? "" : t).replace(/[&<>"]/g, function(c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+function sum(a) { var s = 0; for (var i = 0; i < a.length; i++) s += +a[i] || 0; return s; }
+function gr(p) {
+  return p >= 91 ? "A1" : p >= 81 ? "A2" : p >= 71 ? "B1" : p >= 61 ? "B2" :
+         p >= 51 ? "C1" : p >= 41 ? "C2" : p >= 35 ? "D1" : p >= 20 ? "D2" : "E";
+}
+function res(r, e) {
+  var m = D.marks[r] && D.marks[r][e];
+  if (!m) return null;
+  var mm = sum(EX[e]), subs = [], tot = 0;
+  for (var i = 0; i < 6; i++) {
+    var t = sum(m[i] || []), p = mm ? (t / mm) * 100 : 0;
+    subs.push({ t: t, p: p, g: gr(p) });
+    tot += t;
+  }
+  var P = mm ? (tot / (mm * 6)) * 100 : 0;
+  return {
+    subs: subs,
+    tot: tot,
+    max: mm * 6,
+    mm: mm,
+    p: P,
+    g: gr(P),
+    pass: subs.every(function(s) { return s.p >= 35; })
+  };
+}
+function bd(g) { return '<span class="badge g' + g.charAt(0) + '">' + g + '</span>'; }
+function fx() {
+  var e = ["📚", "✏️", "🔬", "🧮", "⭐", "🌍", "🎨", "💡"], h = '<div class="bgfx">';
+  for (var i = 0; i < 8; i++) {
+    h += '<span style="left:' + (i * 13 + 3) + '%;top:' + ((i * 37) % 80 + 5) + '%;animation-delay:' + (i * 0.8) + 's">' + e[i] + '</span>';
+  }
+  return h + '</div>';
+}
+
+function updateSyncBadge(text) {
+  syncStatus = text;
+  var el = $("syncBadge");
+  if (el) el.textContent = text;
+}
+
+function saveData() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(D)); } catch (e) {}
+  if (useFirebase && db) {
+    updateSyncBadge("⏳ Saving...");
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      db.ref("apms9th").set(D).then(function() {
+        updateSyncBadge("🟢 Saved & Live");
+      }).catch(function(err) {
+        console.error(err);
+        updateSyncBadge("🔴 Sync Error");
+      });
+    }, 250);
+  } else {
+    updateSyncBadge("🟡 Auto-Saved");
+  }
+}
+
+function loadData() {
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      var parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") {
+        D = { students: parsed.students || {}, marks: parsed.marks || {} };
+      }
+    }
+  } catch (e) {}
+
+  if (useFirebase && db) {
+    db.ref("apms9th").on("value", function(snap) {
+      var val = snap.val();
+      if (val && typeof val === "object") {
+        D = { students: val.students || {}, marks: val.marks || {} };
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(D)); } catch (e) {}
+        if (role === "student") render();
+        else if (role === "admin" && roll) live();
+      }
+      updateSyncBadge("🟢 Online Live");
+    });
+  }
+
+  window.addEventListener("storage", function(ev) {
+    if (ev.key === STORAGE_KEY && ev.newValue) {
+      try {
+        var parsed = JSON.parse(ev.newValue);
+        D = { students: parsed.students || {}, marks: parsed.marks || {} };
+        if (role === "student") render();
+      } catch (e) {}
+    }
+  });
+}
+
+// ================================================================
+// AUTH & NAVIGATION
+// ================================================================
+function loginHTML() {
+  return '<div class="hero">' + fx() +
+    '<h1>APMS SR PURAM</h1><p class="tag">9th CLASS RESULT</p>' +
+    '<div class="lcard"><h2>Sign in</h2>' +
+    '<label for="u">Username</label><input id="u" autocomplete="username" autocapitalize="characters">' +
+    '<label for="p">Password</label><input id="p" type="password" autocomplete="current-password">' +
+    '<div class="err" id="e"></div>' +
+    '<button style="width:100%" onclick="doLogin()">Sign in</button>' +
+    '</div></div>';
+}
+
+function doLogin() {
+  var u = ($("u").value || "").trim().toUpperCase();
+  var p = ($("p").value || "").trim();
+  if (u !== AUTH_USER) {
+    $("e").textContent = "Incorrect username or password.";
+    return;
+  }
+  if (p === ADMIN_PASS) {
+    role = "admin";
+  } else if (p === STUDENT_PASS) {
+    role = "student";
+  } else {
+    $("e").textContent = "Incorrect username or password.";
+    return;
+  }
+  try { sessionStorage.setItem("sp_role", role); } catch (e) {}
+  roll = 0;
+  render();
+}
+
+function boot() {
+  loadData();
+  try {
+    var r = sessionStorage.getItem("sp_role");
+    if (r === "admin" || r === "student") role = r;
+  } catch (e) { role = null; }
+  render();
+}
+
+function out() {
+  role = null;
+  roll = 0;
+  try { sessionStorage.clear(); } catch (e) {}
+  render();
+}
+
+function setRoll(n) {
+  roll = n;
+  try { sessionStorage.setItem("sp_roll", n); } catch (e) {}
+  if (role === "student") {
+    ex = firstEx(n);
+    celebrate = true;
+  }
+  render();
+}
+
+function firstEx(n) {
+  for (var k in EX) if (D.marks[n] && D.marks[n][k]) return k;
+  return "FA1";
+}
+
+function setEx(e) {
+  ex = e;
+  celebrate = role === "student";
+  render();
+}
+
+function grid() {
+  var h = '<div class="grid">';
+  for (var n = 1; n <= 32; n++) {
+    var has = role === "admin" && D.students[n] && D.students[n].name;
+    h += '<button class="chip' + (n === roll ? " on" : "") + (has ? " has" : "") +
+         '" onclick="setRoll(' + n + ')" aria-label="Roll number ' + n + '">' + n + '</button>';
+  }
+  return h + '</div>';
+}
+
+function pills() {
+  var h = '<div class="pills">';
+  for (var k in EX) {
+    h += '<button class="' + (k === ex ? "on" : "") + '" onclick="setEx(\'' + k + '\')">' + k + '</button>';
+  }
+  return h + '</div>';
+}
+
+function sumBox() {
+  return '<div class="sum"><svg class="ring" viewBox="0 0 120 120"><defs><linearGradient id="gr"><stop offset="0" stop-color="#3a55ff"/><stop offset="1" stop-color="#ff4d8d"/></linearGradient></defs><circle class="rb" cx="60" cy="60" r="52"/><circle class="rf" id="rf" cx="60" cy="60" r="52" style="stroke-dasharray:326.7;stroke-dashoffset:326.7"/><text class="rtxt" x="60" y="68" id="rtxt">–</text></svg><div><div class="big" id="rtot">–</div><div id="rgr"></div><div id="rst" style="font-weight:800"></div></div></div>';
+}
+
+function updSum(r) {
+  var rf = $("rf");
+  if (!rf) return;
+  if (!r) {
+    rf.style.strokeDashoffset = 326.7;
+    $("rtxt").textContent = "–";
+    $("rtot").textContent = "No marks yet";
+    $("rgr").innerHTML = "";
+    $("rst").textContent = "";
+    return;
+  }
+  rf.style.strokeDashoffset = 326.7 * (1 - Math.min(100, r.p) / 100);
+  $("rtxt").textContent = r.p.toFixed(1) + "%";
+  $("rtot").textContent = r.tot + " / " + r.max;
+  $("rgr").innerHTML = "Overall grade " + bd(r.g);
+  $("rst").textContent = r.pass ? "✅ Passed all subjects" : "📘 Needs improvement in some subjects";
+  $("rst").style.color = r.pass ? "var(--ok)" : "var(--warn)";
+}
+
+// ================================================================
+// ADMIN VIEW & AUTO-SAVE
+// ================================================================
+function adminHTML() {
+  var n = Object.keys(D.students).filter(function(k) { return D.students[k] && D.students[k].name; }).length;
+  var h = '<div class="panel"><h2>Select roll number</h2><p style="margin:0 0 10px;color:var(--mute)">' +
+    n + ' of 32 students added. Auto-save active — changes push automatically to students. Green dot = student name saved.</p>' + grid() +
+    '<div class="tools">' +
+    '<button class="sec" onclick="exportJSON()">⬇️ Backup JSON</button>' +
+    '<button class="sec" onclick="$(\'impFile\').click()">⬆️ Restore JSON</button>' +
+    '<input id="impFile" type="file" accept="application/json" style="display:none" onchange="importJSON(this)">' +
+    '</div></div>';
+
+  if (!roll) return h + '<div class="panel empty"><span>👆</span>Pick a roll number to enter student details and marks.</div>';
+
+  var s = D.students[roll] || {};
+  h += '<div class="panel"><h2>Roll number ' + roll + '</h2><div class="who" style="margin-bottom:14px">' + avatar(s) +
+    '<div><div class="pills">' + gbtn("Boy") + gbtn("Girl") + '</div>' +
+    '<label for="sp" style="font-size:.85rem;font-weight:800;color:var(--mute)">Student photo</label>' +
+    '<input id="sp" type="file" accept="image/*" onchange="setPhoto(this)"></div></div>' +
+    '<div class="two"><div><label for="sn">Student name</label><input id="sn" value="' + esc(s.name) + '" oninput="setName(\'name\',this.value)"></div>' +
+    '<div><label for="sf">Father name</label><input id="sf" value="' + esc(s.father) + '" oninput="setName(\'father\',this.value)"></div></div></div>';
+
+  h += '<div class="panel"><h2>Marks (' + ex + ')</h2>' + pills() + '<div class="wrap"><table><tr><th>Subject</th>';
+  EX[ex].forEach(function(m, i) {
+    h += '<th>' + (ex.indexOf("FA") === 0 ? "Tool " + (i + 1) : "Part " + (i + 1)) + ' / ' + m + '</th>';
+  });
+  h += '<th>Total / ' + sum(EX[ex]) + '</th><th>Grade</th></tr>';
+
+  var mk = (D.marks[roll] && D.marks[roll][ex]) || [];
+  SUBJ.forEach(function(sb, si) {
+    h += '<tr><td><b>' + sb + '</b></td>';
+    EX[ex].forEach(function(m, ti) {
+      var v = (mk[si] && mk[si][ti] !== undefined) ? mk[si][ti] : "";
+      h += '<td><input type="number" inputmode="decimal" min="0" max="' + m +
+           '" id="i' + si + '_' + ti + '" value="' + esc(v) +
+           '" oninput="setMark(' + si + ',' + ti + ',this)" aria-label="' + sb + ' ' + (ti + 1) + '"></td>';
+    });
+    h += '<td id="t' + si + '">–</td><td id="g' + si + '"></td></tr>';
+  });
+  return h + '</table></div></div><div class="panel"><h2>Result preview</h2>' + sumBox() + '</div>';
+}
+
+function avatar(s) {
+  return s.photo
+    ? '<img class="av" alt="" src="' + s.photo + '">'
+    : '<div class="av">' + (s.name ? esc(s.name.charAt(0).toUpperCase()) : "?") + '</div>';
+}
+function gbtn(g) {
+  var s = D.students[roll] || {};
+  return '<button class="' + (s.gender === g ? "on" : "") + '" data-g="' + g +
+         '" onclick="setGender(this.dataset.g)">' + (g === "Boy" ? "👦 Boy" : "👧 Girl") + '</button>';
+}
+function setGender(g) {
+  D.students[roll] = D.students[roll] || {};
+  D.students[roll].gender = g;
+  saveData();
+  render();
+}
+function setPhoto(inp) {
+  var f = inp.files && inp.files[0];
+  if (!f) return;
+  var rd = new FileReader();
+  rd.onload = function() {
+    var img = new Image();
+    img.onload = function() {
+      var c = document.createElement("canvas"), z = 160, m = Math.min(img.width, img.height);
+      c.width = c.height = z;
+      c.getContext("2d").drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, z, z);
+      D.students[roll] = D.students[roll] || {};
+      D.students[roll].photo = c.toDataURL("image/jpeg", 0.75);
+      saveData();
+      render();
+    };
+    img.src = rd.result;
+  };
+  rd.readAsDataURL(f);
+}
+function setName(k, v) {
+  D.students[roll] = D.students[roll] || {};
+  D.students[roll][k] = v;
+  saveData();
+}
+function setMark(si, ti, el) {
+  var max = EX[ex][ti], v = el.value;
+  if (v !== "") {
+    v = Math.max(0, Math.min(max, +v));
+    if (+el.value !== v) el.value = v;
+  }
+  D.marks[roll] = D.marks[roll] || {};
+  var m = D.marks[roll][ex] = D.marks[roll][ex] || [[], [], [], [], [], []];
+  m[si][ti] = v;
+  saveData();
+  live();
+}
+function live() {
+  var r = res(roll, ex);
+  SUBJ.forEach(function(x, i) {
+    var t = $("t" + i);
+    if (!t) return;
+    t.textContent = r ? r.subs[i].t : "–";
+    $("g" + i).innerHTML = r ? bd(r.subs[i].g) : "";
+  });
+  updSum(r);
+}
+
+function exportJSON() {
+  var blob = new Blob([JSON.stringify(D, null, 2)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "apms-9th-marks-backup.json";
+  a.click();
+}
+
+function importJSON(inp) {
+  var f = inp.files && inp.files[0];
+  if (!f) return;
+  var rd = new FileReader();
+  rd.onload = function() {
+    try {
+      var p = JSON.parse(rd.result);
+      D = { students: p.students || {}, marks: p.marks || {} };
+      saveData();
+      render();
+      alert("✅ Backup restored & synced!");
+    } catch (e) {
+      alert("❌ Invalid JSON file");
+    }
+  };
+  rd.readAsText(f);
+}
+
+// ================================================================
+// STUDENT VIEW
+// ================================================================
+function studentHTML() {
+  var h = '<div class="panel"><h2>Choose your roll number</h2>' + grid() + '</div>';
+  if (!roll) return h + '<div class="panel empty"><span>🎒</span>Tap your roll number to see your marks.</div>';
+  var s = D.students[roll];
+  if (!s || !s.name) return h + '<div class="panel empty"><span>⏳</span>Details for roll number ' + roll + ' haven’t been added yet.</div>';
+
+  h += '<div class="panel who">' + avatar(s) +
+    '<div><h2 style="margin:0">' + esc(s.name) + '</h2>' +
+    '<div style="color:var(--mute);font-weight:700">Father: ' + esc(s.father || "–") +
+    ' · Roll ' + roll + (s.gender ? ' · ' + s.gender : '') + '</div></div></div>';
+
+  h += '<div class="panel">' + pills();
+  var r = res(roll, ex);
+  if (!r) return h + '<div class="empty"><span>📭</span>' + ex + ' marks haven’t been published yet.</div></div>';
+
+  h += sumBox() + '</div><div class="panel"><h2>' + ex + ' subject marks</h2>';
+  r.subs.forEach(function(x, i) {
+    h += '<div class="sub"><b>' + SUBJ[i] + '</b><span>' + x.t + ' / '+ r.mm + ' ' + bd(x.g) +
+         '</span><div class="bar"><i data-w="' + x.p.toFixed(1) + '"></i></div></div>';
+  });
+  return h + '</div>';
+}
+
+function party() {
+  var c = document.createElement("div");
+  c.className = "confetti";
+  var h = "", k = ["#3a55ff", "#ff4d8d", "#ffb400", "#13b26b", "#8a3dff"];
+  for (var i = 0; i < 40; i++) {
+    h += '<i style="left:' + (Math.random() * 100) + '%;background:' + k[i % 5] +
+         ';animation-delay:' + (Math.random() * 1.2) + 's"></i>';
+  }
+  c.innerHTML = h;
+  document.body.appendChild(c);
+  setTimeout(function() { c.remove(); }, 4500);
+}
+
+function render() {
+  var a = $("app");
+  if (!role) {
+    a.innerHTML = loginHTML();
+    $("p").onkeydown = function(e) { if (e.key === "Enter") doLogin(); };
+    return;
+  }
+  a.innerHTML = fx() +
+    '<header><div class="logo"><b>🎓 APMS SR PURAM</b><small>9th CLASS RESULT</small></div>' +
+    '<span class="sync-pill" id="syncBadge">' + syncStatus + '</span>' +
+    '<span class="pill">' + (role === "admin" ? "Admin" : "Student") + '</span>' +
+    '<button class="ghost" onclick="out()">Sign out</button></header>' +
+    '<main>' + (role === "admin" ? adminHTML() : studentHTML()) + '</main>';
+
+  setTimeout(function() {
+    document.querySelectorAll("[data-w]").forEach(function(e) { e.style.width = e.dataset.w + "%"; });
+    if (roll) {
+      var r = res(roll, ex);
+      updSum(r);
+      if (role === "admin") live();
+      if (celebrate && r && (r.g === "A1" || r.g === "A2")) party();
+    }
+    celebrate = false;
+  }, 80);
+}
+
+boot();
+</script>
+</body>
+</html>
